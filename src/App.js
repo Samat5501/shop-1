@@ -1,52 +1,32 @@
-import React, {useState} from 'react'
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import Products from './components/Products';
-import RenderCart from './components/RenderCart';
-
-const PAGE_PRODUCTS = 'products';
-const PAGE_CART = 'cart'
+import About from './components/About';
+import EmptyPage from './components/EmptyPage';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import Main from './Main';
 
 
 function App() {
-  const [cart, setCart] = useState([]);
-  const [page, setPage] = useState(PAGE_PRODUCTS);
 
-  const addToCart = (product) => {
-    setCart([...cart, { ...product }]);
-  }
-  const removeFromCart = (itemToRemove) => {
-    setCart(cart.filter(item => item !== itemToRemove));
-  }
-
-  const navigateTo = (nextPage) => {
-    setPage(nextPage)
-  }
-  
   return (
-      <div className="App">
-      <header>
-        <button className='main-btn' onClick={() => navigateTo(PAGE_PRODUCTS)}>
-            View products
-          </button>
-          <button className='main-btn' onClick={() => navigateTo(PAGE_CART)}>
-            Go to Cart <span>{cart.length}</span>
-          </button>
-          
-      </header>
-      <div className='main'>
-        {page === PAGE_PRODUCTS && <Products
-          addToCart={addToCart}
-        />}
-        {page === PAGE_CART && (
-          <RenderCart
-            PAGE_PRODUCTS={PAGE_PRODUCTS}
-            navigateTo={navigateTo}
-            cart={cart}
-            removeFromCart={removeFromCart}
-          />
-        )}
-      </div>
-      </div>
+    <Router>
+      <Navbar />
+      <Switch>
+        <div className="App">
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/product">
+            <Main />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+        </div>
+      </Switch>
+      </Router>
   );
 }
 
