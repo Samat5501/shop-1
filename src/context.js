@@ -1,47 +1,45 @@
-import React, { useEffect, useContext,useState } from 'react'
-import { data } from './data';
+import React, {  useContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { data } from "./data";
 
- const Context = React.createContext()
+const Context = React.createContext();
 
-const AppProvider = ({children}) => {
-    const [loading, setLoading] = useState(true);
-    const [search, setSearch] = useState('a');
-    const [phones, setPhones] = useState([]);
+const AppProvider = ({ children }) => {
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("a");
+  const [phones, setPhones] = useState(data);
+  const [count, setCount] = useState('0');
+  const [addedCart, setAddedCart] = useState({});
 
-    const PhonesFunc = async () => {
-        setLoading(true)
-        // console.log(data);
-        try {
-            if (data) {
-                data.map((item) => {
-                    const { idPhone, imgPhone, namePhone, costPhone } = item;
+  // store 
+//   const dispatch = useDispatch();
+//   const product = useSelector((state) => state.product);
+// console.log(product);
+  
+  // useEffect(() => {
+  // }, [search]);
 
-                    return {
-                        id: idPhone, name: namePhone, image: imgPhone, cost: costPhone
-                    }
-                })
-                setPhones(data)
-            }
-            else {
-                setPhones([])
-            }
-            setLoading(false)
-        } catch (error) {
-            console.log(error);
-            setLoading(false)
-        }
-    }
-
-useEffect(() => {
-    PhonesFunc()
-}, [search]);
-
-return <Context.Provider value={{loading, search, setSearch, phones}}>
-    {children}
-</Context.Provider>
-}
+  return (
+    <Context.Provider
+      value={{
+        loading,
+        setLoading,
+        search,
+        setSearch,
+        phones,
+        count,
+        setCount,
+        data,
+        addedCart,
+        setAddedCart,
+      }}
+    >
+      {children}
+    </Context.Provider>
+  );
+};
 export const useGlobalContext = () => {
-    return useContext(Context)
+  return useContext(Context);
 };
 
 export { Context, AppProvider };

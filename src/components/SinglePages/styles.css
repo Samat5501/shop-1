@@ -1,0 +1,35 @@
+.single-title{
+    margin-top: 100px;
+}
+.single-list{
+    width: 800px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+span{
+    color: rgb(141, 167, 134);
+    background: rgb(228, 227, 161);
+    border-radius: 5px;
+    padding: 5px;
+    text-align: left;
+    text-transform: capitalize;
+}
+.drink{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.drink-info{
+    text-align: left;
+    line-height: 50px;
+    margin-left: 20px;
+}
+.info-description{
+    width: 400px;
+    line-height: 30px;
+}
+.drink img{
+    height: 350px;
+}

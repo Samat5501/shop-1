@@ -1,0 +1,52 @@
+.home{
+    width: 1200px;
+    height: 540px;
+    margin: 0px auto;
+    /* border: saddlebrown 1px solid; */
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.home h1{
+    position: absolute;
+    top: 30px;
+    margin-bottom: 2rem;
+    text-align: left;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 3.5rem;
+}
+.home p{
+    position: absolute;
+    top: 250px;
+    line-height: 2;
+    margin-bottom: 2rem;
+    color: rgb(75, 72, 72);
+    font-size: 1rem;
+    width: 500px;
+    text-align: left;
+    font-weight: 300;
+}
+.shop-btn{
+    position: absolute;
+    bottom: 50px;
+    left: -120px;
+}
+.home-img{
+    position: absolute;
+    top: 70px;
+    right: 20px;
+}
+.home2-img{
+    position: absolute;
+    top: 230px;
+    right: 400px;
+    width: auto;
+}
+.home3-img{
+    position: absolute;
+    top: 330px;
+    right: 200px;
+    width: auto;
+    height: 200px;
+}

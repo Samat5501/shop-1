@@ -1,14 +1,13 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { Context } from '../../context';
+import { useGlobalContext } from '../../context';
 import { createFromIconfontCN } from "@ant-design/icons";
 import './style.css'
-import Products from '../Products';
-import RenderCart from '../RenderCart';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 function Navbar() {
+    const { count } = useGlobalContext()
+    // const { id } = useGlobalContext();
 
     // const PAGE_CART = 'cart'
     // const PAGE_PRODUCTS = 'products';
@@ -50,13 +49,11 @@ function Navbar() {
                     <li>
                         <Link to='/about'>About</Link>
                     </li>
-                    {/* <li>
-                        <Link to='/cart'>
+                        <Link className='card-icon' to='/cart'>
                             <button className='main-btn'>
-                                Cart <IconFont type="icon-shoppingcart" />{" "}
+                                Cart <IconFont style={{background: 'inherit'}} type="icon-shoppingcart"/>{count.length}
                             </button>
                         </Link>
-                    </li> */}
                 </ul>
             </div>
         </div>

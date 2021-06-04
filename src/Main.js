@@ -4,7 +4,6 @@ import Products from './components/Products';
 import RenderCart from './components/RenderCart';
 import { createFromIconfontCN } from "@ant-design/icons";
 import { Context } from './context';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 
